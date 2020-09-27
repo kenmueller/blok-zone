@@ -1,14 +1,24 @@
+import { useEffect } from 'react'
 import Head from 'next/head'
+import Router from 'next/router'
+
+import createGame from 'lib/createGame'
 
 import styles from 'styles/Home.module.scss'
 
-const Home = () => (
-	<div className={styles.root}>
-		<Head>
-			<title>Next.js</title>
-		</Head>
-		<h1>If you see this, your Next.js app is working!</h1>
-	</div>
-)
+const Home = () => {
+	useEffect(() => {
+		createGame().then(id => Router.push('/[id]', `/${id}`))
+	}, [])
+	
+	return (
+		<div className={styles.root}>
+			<Head>
+				<title>BlokZone</title>
+			</Head>
+			<h1>Creating <span className={styles.logo}>Blok Zone</span> game...</h1>
+		</div>
+	)
+}
 
 export default Home

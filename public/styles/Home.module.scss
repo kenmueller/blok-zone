@@ -2,7 +2,12 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
+	min-height: 100vh;
 	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
+	color: white;
+	background: #292d3e;
+}
+
+.logo {
+	color: #ffcb6b;
 }
