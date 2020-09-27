@@ -8,13 +8,13 @@ import styles from 'styles/Home.module.scss'
 
 const Home = () => {
 	useEffect(() => {
-		createGame().then(id => Router.push('/[id]', `/${id}`))
+		createGame().then(id => Router.replace('/[id]', `/${id}`))
 	}, [])
 	
 	return (
 		<div className={styles.root}>
 			<Head>
-				<title>BlokZone</title>
+				<title key="title">Blok Zone</title>
 			</Head>
 			<h1>Creating <span className={styles.logo}>Blok Zone</span> game...</h1>
 		</div>

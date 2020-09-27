@@ -1,15 +1,13 @@
-# blok-zone
+# Blok Zone
 
-> Scaffolded by [next-firebase](https://www.npmjs.com/package/next-firebase)
+## Game Schema
 
-## Run dev server
-
-```bash
-npm start
 ```
-
-## Deploy
-
-```bash
-npm run deploy
+- GAME_ID
+	- pieces
+		- small-t
+			- user: 1|2
+			- x: 10
+			- y: 20
+	- players?: 0
 ```
