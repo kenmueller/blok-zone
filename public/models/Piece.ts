@@ -22,9 +22,10 @@ export enum Piece {
 }
 
 export interface PieceData {
+	piece: Piece
 	color: Color
 	x: number
 	y: number
 }
 
-export type Pieces = Record<Piece, PieceData>
+export type Pieces = PieceData[]

@@ -5,6 +5,7 @@ import Head from 'next/head'
 import firebase from 'lib/firebase'
 import Color from 'models/Color'
 import { Pieces } from 'models/Piece'
+import Board from 'components/Board'
 
 import styles from 'styles/Game.module.scss'
 
@@ -21,7 +22,7 @@ const GamePage = () => {
 	
 	const [color, setColor] = useState<Color | null>(null)
 	const [pieces, setPieces] = useState<Pieces | null>(null)
-
+	
 	useEffect(() => (
 		id && firestore.doc(`games/${id}`).onSnapshot(snapshot => {
 			if (willInit.current) {
@@ -46,16 +47,17 @@ const GamePage = () => {
 			}
 		
 			// Update the pieces
-			setPieces(snapshot.get('pieces'))
+			setPieces(snapshot.get('pieces') ?? [])
 		}, console.error)
 	), [willInit, router, id, setColor, setPieces])
 	
 	return (
-		<div>
+		<div className={styles.root}>
 			<Head>
 				<title key="title">Red vs Blue - Blok Zone</title>
 			</Head>
-			{id}
+			<p>You are {color ?? '...'}</p>
+			{pieces && <Board pieces={pieces} />}
 		</div>
 	)
 }

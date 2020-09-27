@@ -1,0 +1,20 @@
+$size: 14;
+$cell-dimension: 50px;
+
+.root {
+	display: grid;
+	grid: repeat($size, $cell-dimension) / repeat($size, $cell-dimension);
+	gap: 4px;
+}
+
+.empty {
+	background: white;
+}
+
+.red {
+	background: red;
+}
+
+.blue {
+	background: blue;
+}
